@@ -188,6 +188,13 @@
 	    
     	    	    	    
     	</LinearLayout>
+
+    	<Button
+    	    android:id="@+id/button_autodetect"
+    	    android:layout_width="wrap_content"
+    	    android:layout_height="wrap_content"
+    	    android:layout_gravity="center"
+    	    android:text="@string/button_autodetect" />
     	
      	<TextView
 			android:layout_width="wrap_content" 
@@ -214,10 +221,6 @@
 			       	android:orientation="vertical"
 			        android:layout_width="wrap_content"
 			        android:layout_height="wrap_content">
-			        <RadioButton android:id="@+id/port_80"
-			            android:layout_width="wrap_content"
-			            android:layout_height="wrap_content"
-			            android:text="@string/port_80_with_explanation" />
 			        <RadioButton android:id="@+id/port_8080"
 			            android:layout_width="wrap_content"
 			            android:layout_height="wrap_content"
@@ -255,10 +258,6 @@
 				            android:layout_width="wrap_content"
 				            android:layout_height="wrap_content"
 				            android:text="@string/command_streaming_with_explanation" />
-				        <RadioButton android:id="@+id/command_videofeed"
-				            android:layout_width="wrap_content"
-				            android:layout_height="wrap_content"
-				            android:text="@string/command_videofeed_with_explanation" />
 			</RadioGroup>
 
      			

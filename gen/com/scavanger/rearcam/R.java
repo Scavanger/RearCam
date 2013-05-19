@@ -29,19 +29,18 @@ public final class R {
         public static final int address4_decrement=0x7f060010;
         public static final int address4_increment=0x7f06000e;
         public static final int address4_input=0x7f06000f;
+        public static final int button_autodetect=0x7f060011;
         public static final int command_input=0x7f060015;
         public static final int command_radiogroup=0x7f060016;
         public static final int command_streaming=0x7f060017;
-        public static final int command_videofeed=0x7f060018;
         public static final int height_input=0x7f060004;
         public static final int mv=0x7f060000;
-        public static final int port_80=0x7f060013;
         public static final int port_8080=0x7f060014;
-        public static final int port_input=0x7f060011;
-        public static final int port_radiogroup=0x7f060012;
+        public static final int port_input=0x7f060012;
+        public static final int port_radiogroup=0x7f060013;
         public static final int resolution_spinner=0x7f060002;
         public static final int settings=0x7f060001;
-        public static final int settings_done=0x7f060019;
+        public static final int settings_done=0x7f060018;
         public static final int width_input=0x7f060003;
     }
     public static final class layout {
@@ -52,6 +51,7 @@ public final class R {
     public static final class string {
         public static final int address_dot=0x7f040009;
         public static final int app_name=0x7f040000;
+        public static final int button_autodetect=0x7f04001a;
         public static final int command_setting_label=0x7f040006;
         public static final int command_streaming=0x7f04000e;
         public static final int command_streaming_with_explanation=0x7f040010;
@@ -59,6 +59,7 @@ public final class R {
         public static final int command_videofeed_with_explanation=0x7f040011;
         public static final int digits_decrement=0x7f040008;
         public static final int digits_increment=0x7f040007;
+        public static final int error_autodetect=0x7f04001b;
         public static final int ip_setting_label=0x7f040004;
         public static final int notContent=0x7f040018;
         public static final int notTickerText=0x7f040019;

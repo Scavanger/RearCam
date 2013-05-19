@@ -10,7 +10,6 @@ import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.params.HttpParams;
 
 import com.scavanger.rearcam.R;
-import com.scavanger.rearcam.SettingsActivity;
 
 import android.app.Activity;
 import android.os.AsyncTask;

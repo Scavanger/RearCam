@@ -1,6 +1,10 @@
-package com.scavanger.rearcam;
+package com.camera.simplemjpeg;
+
+import java.util.ArrayList;
 
 import com.scavanger.rearcam.R;
+import com.scavanger.rearcam.WlanInfo;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +16,7 @@ import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.TextView.BufferType;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 public class SettingsActivity extends Activity {
 	
@@ -36,7 +41,9 @@ public class SettingsActivity extends Activity {
 	Button address1_decrement;	
 	Button address2_decrement;	
 	Button address3_decrement;	
-	Button address4_decrement;	
+	Button address4_decrement;
+	
+	Button button_autodetect;
 	
 	RadioGroup port_group;
 	RadioGroup command_group;
@@ -319,11 +326,31 @@ public class SettingsActivity extends Activity {
         		}        		
         );
         
+        button_autodetect = (Button)findViewById(R.id.button_autodetect);
+        button_autodetect.setOnClickListener(
+        		new View.OnClickListener() {
+					
+					@Override
+					public void onClick(View v) {
+						WlanInfo.context = getApplicationContext();
+						ArrayList<String> ips = WlanInfo.getIPsOfConnectedWlanClients();
+						if (ips.size() == 1 && !ips.get(0).equals(WlanInfo.getIpOfDefaultGateway())) {
+							String[] ipbytes = ips.get(0).split("\\.");
+							
+							address1_input.setText(ipbytes[0], BufferType.NORMAL);
+							address2_input.setText(ipbytes[1], BufferType.NORMAL);
+							address3_input.setText(ipbytes[2], BufferType.NORMAL);
+							address4_input.setText(ipbytes[3], BufferType.NORMAL);
+						} else {
+							Toast.makeText(getApplicationContext(), getString(R.string.error_autodetect), Toast.LENGTH_LONG).show();
+						}
+					}
+				}
+        		);
+        
         port_group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             public void onCheckedChanged(RadioGroup group, int checkedId) { 
-                if(checkedId == R.id.port_80){
-                	port_input.setText(getString(R.string.port_80));
-                }else if(checkedId == R.id.port_8080){
+                if(checkedId == R.id.port_8080){
                 	port_input.setText(getString(R.string.port_8080));
                 }
             }
@@ -333,8 +360,6 @@ public class SettingsActivity extends Activity {
             public void onCheckedChanged(RadioGroup group, int checkedId) { 
                 if(checkedId == R.id.command_streaming){
                 	command_input.setText(getString(R.string.command_streaming));
-                }else if(checkedId == R.id.command_videofeed){
-                	command_input.setText(getString(R.string.command_videofeed));
                 }
             }
         });
